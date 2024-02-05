@@ -1,9 +1,9 @@
-# Vector Classes
+# Euclidean Vectors
 
 ## Project Purpose:
 - Learn about operator overloading
 - Learn about unit testing (doctest)
-- Learn basic mathematical principles related to Euclidian vectors
+- Learn basic mathematical principles related to Euclidean vectors
 - Implement a simple, useful data structure from scratch
 
 ## Vec2 Class

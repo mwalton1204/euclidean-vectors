@@ -1,6 +1,6 @@
 # Vector Classes
 
-**Project Purpose:**
+## Project Purpose:
 - Learn about operator overloads
 - Learn about unit testing (doctest)
 - Learn basic mathematical principles related to Euclidian vectors.

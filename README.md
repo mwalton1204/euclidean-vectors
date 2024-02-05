@@ -1,5 +1,11 @@
 # Vector Classes
 
+**Project Purpose:**
+- Learn about operator overloads
+- Learn about unit testing (doctest)
+- Learn basic mathematical principles related to Euclidian vectors.
+- Implement a simple, useful data structure from scratch
+
 ## Vec2 Class
 
 The `Vec2` class represents a 2-dimensional vector in Euclidean space. It provides various functionalities for vector arithmetic and manipulation.

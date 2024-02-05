@@ -4,6 +4,8 @@
 
 #Unignore specific sub directories
 !/Vec2
+!/Tests
+!/Tests/Doctest
 !/External
 
 #Unignore specific files

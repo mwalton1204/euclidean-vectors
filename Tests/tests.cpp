@@ -115,3 +115,19 @@ TEST_CASE("Test Binary Arithmetic Operations") {
         CHECK(tempVector.y == (5.0/10.0));
     }
 }
+
+TEST_CASE("Test Unary Arithmetic Operations") {
+
+}
+
+TEST_CASE("Test Assignment Operations") {
+
+}
+
+TEST_CASE("Test Relational Operations") {
+
+}
+
+TEST_CASE("Test Utility Methods") {
+    
+}

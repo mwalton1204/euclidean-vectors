@@ -11,108 +11,108 @@ VEC2 TESTS
 TEST_CASE("Test Empty Initialization") {
     Vec2 vector;
 
-    CHECK(vector.x == 0.0);
-    CHECK(vector.y == 0.0);
+    CHECK(vector.x == 0.0f);
+    CHECK(vector.y == 0.0f);
 }
 
 TEST_CASE("Test Value Initialization") {
 
     SUBCASE("Zero Values"){
-        Vec2 myVector(0.0, 0.0);
+        Vec2 myVector(0.0f, 0.0f);
 
-        CHECK(myVector.x == 0.0);
-        CHECK(myVector.y == 0.0);
+        CHECK(myVector.x == 0.0f);
+        CHECK(myVector.y == 0.0f);
     }
 
     SUBCASE("Nonzero Values"){
-        Vec2 myVector(3.0, 5.0);
+        Vec2 myVector(3.0f, 5.0f);
 
-        CHECK(myVector.x == 3.0);
-        CHECK(myVector.y == 5.0);
+        CHECK(myVector.x == 3.0f);
+        CHECK(myVector.y == 5.0f);
     }
 
     SUBCASE("One Zero Value"){
-        Vec2 myVector(0.0, 5.0);
+        Vec2 myVector(0.0f, 5.0f);
 
-        CHECK(myVector.x == 0.0);
-        CHECK(myVector.y == 5.0);
+        CHECK(myVector.x == 0.0f);
+        CHECK(myVector.y == 5.0f);
     }
 
     SUBCASE("Negative Values"){
-        Vec2 myVector(-3.0, -5.0);
+        Vec2 myVector(-3.0f, -5.0f);
 
-        CHECK(myVector.x == -3.0);
-        CHECK(myVector.y == -5.0);
+        CHECK(myVector.x == -3.0f);
+        CHECK(myVector.y == -5.0f);
     }
 
     SUBCASE("Very Large Values"){
-        Vec2 myVector(pow(3.0, 10), pow(5.0, 10));
+        Vec2 myVector(pow(3.0f, 10.0f), pow(5.0f, 10.0f));
 
-        CHECK(myVector.x == doctest::Approx(pow(3.0, 10)));
-        CHECK(myVector.y == doctest::Approx(pow(5.0, 10)));
+        CHECK(myVector.x == doctest::Approx(pow(3.0f, 10.0f)));
+        CHECK(myVector.y == doctest::Approx(pow(5.0f, 10.0f)));
     }
 
     SUBCASE("Very Small Values"){
-        Vec2 myVector(pow(3.0, -10), pow(5.0, -10));
+        Vec2 myVector(pow(3.0f, -10.0f), pow(5.0f, -10.0f));
 
-        CHECK(myVector.x == doctest::Approx(pow(3.0, -10)));
-        CHECK(myVector.y == doctest::Approx(pow(5.0, -10)));
+        CHECK(myVector.x == doctest::Approx(pow(3.0f, -10.0f)));
+        CHECK(myVector.y == doctest::Approx(pow(5.0f, -10.0f)));
     }
 }
 
 TEST_CASE("Test Binary Arithmetic Operations") {
 
-    Vec2 vectorOne(3.0, 5.0);
-    Vec2 vectorTwo(6.0, 10.0);
+    Vec2 vectorOne(3.0f, 5.0f);
+    Vec2 vectorTwo(6.0f, 10.0f);
     Vec2 emptyVector;
 
-    REQUIRE(vectorOne.x == 3.0);
-    REQUIRE(vectorOne.y == 5.0);
-    REQUIRE(vectorTwo.x == 6.0);
-    REQUIRE(vectorTwo.y == 10.0);
-    REQUIRE(emptyVector.x == 0.0);
-    REQUIRE(emptyVector.y == 0.0);
+    REQUIRE(vectorOne.x == 3.0f);
+    REQUIRE(vectorOne.y == 5.0f);
+    REQUIRE(vectorTwo.x == 6.0f);
+    REQUIRE(vectorTwo.y == 10.0f);
+    REQUIRE(emptyVector.x == 0.0f);
+    REQUIRE(emptyVector.y == 0.0f);
 
     SUBCASE("Test Adding Vectors") {
         Vec2 tempVector = vectorOne + vectorTwo;
         
-        CHECK(tempVector.x == 9.0);
-        CHECK(tempVector.y == 15.0);
+        CHECK(tempVector.x == 9.0f);
+        CHECK(tempVector.y == 15.0f);
     }
 
     SUBCASE("Test Subtracting Vectors") {
         Vec2 tempVector = vectorOne - vectorTwo;
         
-        CHECK(tempVector.x == -3.0);
-        CHECK(tempVector.y == -5.0);
+        CHECK(tempVector.x == -3.0f);
+        CHECK(tempVector.y == -5.0f);
     }
 
     SUBCASE("Test Multiplying Vector By Scalar") {
-        Vec2 tempVector = vectorOne * 3;
+        Vec2 tempVector = vectorOne * 3.0f;
         
-        CHECK(tempVector.x == 9.0);
-        CHECK(tempVector.y == 15.0);
+        CHECK(tempVector.x == 9.0f);
+        CHECK(tempVector.y == 15.0f);
     }
 
-        SUBCASE("Test Multiplying Vectors Element-Wise") {
+    SUBCASE("Test Multiplying Vectors Element-Wise") {
         Vec2 tempVector = vectorOne * vectorTwo;
         
-        CHECK(tempVector.x == 18.0);
-        CHECK(tempVector.y == 50.0);
+        CHECK(tempVector.x == 18.0f);
+        CHECK(tempVector.y == 50.0f);
     }
 
-        SUBCASE("Test Dividing Vector By Scalar") {
-        Vec2 tempVector = vectorOne / 3;
+    SUBCASE("Test Dividing Vector By Scalar") {
+        Vec2 tempVector = vectorOne / 3.0f;
         
-        CHECK(tempVector.x == 1.0);
-        CHECK(tempVector.y == doctest::Approx((5.0/3)));
+        CHECK(tempVector.x == 1.0f);
+        CHECK(tempVector.y == doctest::Approx((5.0f/3.0f)));
     }
 
-        SUBCASE("Test Dividing Vectors Element-Wise") {
+    SUBCASE("Test Dividing Vectors Element-Wise") {
         Vec2 tempVector = vectorOne / vectorTwo;
         
-        CHECK(tempVector.x == (3.0/6.0));
-        CHECK(tempVector.y == (5.0/10.0));
+        CHECK(tempVector.x == (3.0f/6.0f));
+        CHECK(tempVector.y == (5.0f/10.0f));
     }
 }
 

@@ -39,28 +39,28 @@ Vec2 Vec2::operator/(const Vec2& other) const {
     return scaledVec;
 }
 
-Vec2& Vec2::operator++() {
+Vec2& Vec2::operator++() { //prefix
     x++;
     y++;
 
     return *this;
 }
 
-Vec2 Vec2::operator++(int) {
+Vec2 Vec2::operator++(int) { //postfix
     Vec2 temp(*this);
     ++(*this);
 
     return temp;
 }
 
-Vec2& Vec2::operator--() {
+Vec2& Vec2::operator--() { //prefix
     x--;
     y--;
 
     return *this;
 }
 
-Vec2 Vec2::operator--(int) {
+Vec2 Vec2::operator--(int) { //postfix
     Vec2 temp(*this);
     --(*this);
 

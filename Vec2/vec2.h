@@ -19,10 +19,10 @@ class Vec2 {
         Vec2 operator/(const Vec2&) const; //element-wise
 
 //Unary Arithmetic
-        Vec2& operator++();
-        Vec2 operator++(int);
-        Vec2& operator--();
-        Vec2 operator--(int);
+        Vec2& operator++(); //prefix
+        Vec2 operator++(int); //postfix
+        Vec2& operator--(); //prefix
+        Vec2 operator--(int); //postfix
 
 //Assignment
         Vec2& operator+=(const Vec2&);

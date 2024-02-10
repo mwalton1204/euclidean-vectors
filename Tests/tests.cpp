@@ -118,6 +118,44 @@ TEST_CASE("Test Binary Arithmetic Operations") {
 
 TEST_CASE("Test Unary Arithmetic Operations") {
 
+    Vec2 vector(3.0f, 5.0f);
+    Vec2 originalVector = vector;
+
+    SUBCASE("Test Prefix Increment") {
+        ++vector;
+        CHECK(vector.x == 4.0f);
+        CHECK(vector.y == 6.0f);
+
+        ++vector, ++vector;
+
+        CHECK(vector.x == 6.0f);
+        CHECK(vector.y == 8.0f);
+    }
+
+    SUBCASE("Test Postfix Increment") {
+        Vec2 returnValue = vector++;
+
+        CHECK(returnValue.x == originalVector.x);
+        CHECK(returnValue.y == originalVector.y);
+    }
+
+    SUBCASE("Test Prefix Decrement") {
+        --vector;
+        CHECK(vector.x == 2.0f);
+        CHECK(vector.y == 4.0f);
+
+        --vector, --vector;
+
+        CHECK(vector.x == 0.0f);
+        CHECK(vector.y == 2.0f);
+    }
+
+    SUBCASE("Test Postfix Decrement") {
+        Vec2 returnValue = vector--;
+
+        CHECK(returnValue.x == originalVector.x);
+        CHECK(returnValue.y == originalVector.y);
+    }
 }
 
 TEST_CASE("Test Assignment Operations") {

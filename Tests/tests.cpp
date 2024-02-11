@@ -135,8 +135,17 @@ TEST_CASE("Test Unary Arithmetic Operations") {
     SUBCASE("Test Postfix Increment") {
         Vec2 returnValue = vector++;
 
-        CHECK(returnValue.x == originalVector.x);
-        CHECK(returnValue.y == originalVector.y);
+        CHECK(returnValue.x == 3.0f);
+        CHECK(returnValue.y == 5.0f); // return values same as in original vector
+        CHECK(vector.x == 4.0f);
+        CHECK(vector.y == 6.0f);
+
+        returnValue = vector++; // increment a secend time
+
+        CHECK(returnValue.x == 4.0f);
+        CHECK(returnValue.y == 6.0f); // second postfix increment returns values expected after completion of first increment
+        CHECK(vector.x == 5.0f);
+        CHECK(vector.y == 7.0f);
     }
 
     SUBCASE("Test Prefix Decrement") {
@@ -153,8 +162,17 @@ TEST_CASE("Test Unary Arithmetic Operations") {
     SUBCASE("Test Postfix Decrement") {
         Vec2 returnValue = vector--;
 
-        CHECK(returnValue.x == originalVector.x);
-        CHECK(returnValue.y == originalVector.y);
+        CHECK(returnValue.x == 3.0f);
+        CHECK(returnValue.y == 5.0f); // return values same as in original vector
+        CHECK(vector.x == 2.0f);
+        CHECK(vector.y == 4.0f);
+
+        returnValue = vector--; // decrement a secend time
+
+        CHECK(returnValue.x == 2.0f);
+        CHECK(returnValue.y == 4.0f); // second postfix decrement returns values expected after completion of first increment
+        CHECK(vector.x == 1.0f);
+        CHECK(vector.y == 3.0f);
     }
 }
 

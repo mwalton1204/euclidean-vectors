@@ -61,17 +61,9 @@ TEST_CASE("Test Value Initialization") {
 }
 
 TEST_CASE("Test Binary Arithmetic Operations") {
-
     Vec2 vectorOne(3.0f, 5.0f);
     Vec2 vectorTwo(6.0f, 10.0f);
     Vec2 emptyVector;
-
-    REQUIRE(vectorOne.x == 3.0f);
-    REQUIRE(vectorOne.y == 5.0f);
-    REQUIRE(vectorTwo.x == 6.0f);
-    REQUIRE(vectorTwo.y == 10.0f);
-    REQUIRE(emptyVector.x == 0.0f);
-    REQUIRE(emptyVector.y == 0.0f);
 
     SUBCASE("Test Adding Vectors") {
         Vec2 tempVector = vectorOne + vectorTwo;
@@ -117,9 +109,8 @@ TEST_CASE("Test Binary Arithmetic Operations") {
 }
 
 TEST_CASE("Test Unary Arithmetic Operations") {
-
     Vec2 vector(3.0f, 5.0f);
-    Vec2 originalVector = vector;
+    Vec2 originalVector(3.0f, 5.0f);
 
     SUBCASE("Test Prefix Increment") {
         ++vector;
@@ -177,11 +168,68 @@ TEST_CASE("Test Unary Arithmetic Operations") {
 }
 
 TEST_CASE("Test Assignment Operations") {
+    Vec2 vectorOne(3.0f, 5.0f);
+    Vec2 vectorTwo(6.0f, 10.0f);
+
+    SUBCASE("Test += Operator") {
+        vectorOne += vectorTwo;
+
+        CHECK(vectorOne.x == 9.0f);
+        CHECK(vectorOne.y == 15.0f);
+    }
+
+    SUBCASE("Test -= Operator") {
+        vectorOne -= vectorTwo;
+
+        CHECK(vectorOne.x == -3.0f);
+        CHECK(vectorOne.y == -5.0f);
+    }
+
+    SUBCASE("Test *= Scalar Operator") {
+        vectorOne *= 2.0;
+
+        CHECK(vectorOne.x == 6.0f);
+        CHECK(vectorOne.y == 10.0f);
+    }
+
+    SUBCASE("Test *= Element-Wise Operator") {
+        vectorOne *= vectorTwo;
+
+        CHECK(vectorOne.x == 18.0f);
+        CHECK(vectorOne.y == 50.0f);
+    }
+
+    SUBCASE("Test /= Scalar Operator") {
+        vectorOne /= 2.0;
+
+        CHECK(vectorOne.x == 1.5f);
+        CHECK(vectorOne.y == 2.5f);
+    }
+
+    SUBCASE("Test /= Element-Wise Operator") {
+        vectorOne /= vectorTwo;
+
+        CHECK(vectorOne.x == 0.5f);
+        CHECK(vectorOne.y == 0.5f);
+    }
+
+    SUBCASE("Test = Operator") {
+        vectorOne = vectorTwo;
+
+        CHECK(vectorOne.x == 6.0f);
+        CHECK(vectorOne.y == 10.0f);
+    }
+
 
 }
 
 TEST_CASE("Test Relational Operations") {
+    Vec2 vectorOne(3.0f, 5.0f);
+    Vec2 vectorTwo(3.0f, 5.0f);
+    Vec2 emptyVector;
 
+    CHECK(vectorOne == vectorTwo);
+    CHECK(vectorOne != emptyVector);
 }
 
 TEST_CASE("Test Utility Methods") {
